@@ -2,12 +2,12 @@
 <script>
 
 var json_server_url ="app_config.json";
-//function for read json data by javascript ajax and pars from json to js array
+//function to read json data by javascript ajax and parse from json to js array
 function fetchJSONFile(path, callback) {
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
-        if (httpRequest.readyState === 4) {
-            if (httpRequest.status === 200) {
+        if (httpRequest.readyState === 4) {   // AJAX call has been complete (when request sent and server returned the response and downloading content)
+            if (httpRequest.status === 200) { // Success request
                 var data = httpRequest.responseText;
                 if (callback) callback(data);
             }
@@ -31,7 +31,7 @@ fetchJSONFile(json_server_url, function(jsdata){
 		//loop to read json data string and check string is Palindrome or not a palindrome
 		for (var i=0; i< json_toarray['strings'].length; i++) {
 		
-		 //pass string into function for check Palindrome to not
+		 //pass string into function for checking Palindrome or not
 		 var pali_res = check_Palindrome(json_toarray['strings'][i]['str']);
 		 
 		 
